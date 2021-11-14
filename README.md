@@ -1,7 +1,7 @@
   # F-Square Installation
   ## Shell script for installation of a F-Square app.
 
-                              ______      _____
+                               ______      _____
                               |  ____|    / ____|
                               | |__ _____| (___   __ _ _   _  __ _ _ __ ___
                               |  __|______\___ \ / _` | | | |/ _` | '__/ _ \
