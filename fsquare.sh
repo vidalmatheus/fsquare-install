@@ -23,6 +23,7 @@ echo -e "${LBLU}
 ${RESTORE}"
 echo -e "${LBLU}                Configure your installation\n${RESTORE}"
 
+read -p "$(echo -e ${BLUE}"? "${RESTORE}${LBLU}"Project name: "${RESTORE})" project_name
 read -p "$(echo -e ${BLUE}"? "${RESTORE}${LBLU}"Python 3.10 (Y/n): "${RESTORE})" installpython
 read -p "$(echo -e ${BLUE}"? "${RESTORE}${LBLU}"nvm (Y/n): "${RESTORE})" installnvm
 read -p "$(echo -e ${BLUE}"? "${RESTORE}${LBLU}"Vue.js (Y/n): "${RESTORE})" installvue
@@ -41,9 +42,6 @@ case $installpython in [nN][oO]|[nN]);;*)
   echo -e "${GREEN}\n\t 1. Installing Python${PYTHON_VERSION}${RESTORE}\n"
   sudo apt update
   sudo apt install wget build-essential libreadline-dev libncursesw5-dev libssl-dev libsqlite3-dev tk-dev libgdbm-dev libc6-dev libbz2-dev libffi-dev zlib1g-dev
-
-
-  wget -c https://www.python.org/ftp/python/${PYTHON_VERSION}/Python-${PYTHON_VERSION}.tar.xz
 
   curl -O https://www.python.org/ftp/python/${PYTHON_VERSION}/Python-${PYTHON_VERSION}.tgz
   tar -xvzf Python-${PYTHON_VERSION}.tgz
@@ -133,21 +131,21 @@ case $haveinstance in [yY][oO]|[yY]);;*)
   cd projects
 
   echo -e "${GREEN}\n\t Instantiating Vue CLI F-Square template${RESTORE}\n"
-  vue init vidalmatheus/fsquare laranja
+  vue init vidalmatheus/fsquare $project_name
 esac
 
 # Create alias for the project
-echo "alias laranja='cd ~/projects/laranja;
-        source ~/projects/.virtualenv/laranja/bin/activate;
+echo "alias ${project_name}='cd ~/projects/${project_name};
+        source ~/projects/.virtualenv/${project_name}/bin/activate;
         nvm use 16'" | sudo tee -a ~/.bashrc >> /dev/null
 
 # Create a virtualenv for the project
 pip3.10 install virtualenv
 cd projects
 mkdir .virtualenv
-virtualenv -p python3.10 .virtualenv/laranja >> /dev/null;
-. ~/projects/.virtualenv/laranja/bin/activate;
-cd laranja
+virtualenv -p python3.10 .virtualenv/$project_name >> /dev/null;
+. ~/projects/.virtualenv/$project_name/bin/activate;
+cd $project_name
 
 
 echo -e "${GREEN}\n\t Installing python modules${RESTORE}\n"
@@ -163,4 +161,4 @@ python --version
 pip --version
 
 
-echo -e "${GREEN}\nYou are good to go! \o/ \nYou can use ${YELLOW}laranja${RESTORE} ${GREEN}anywhere to go to your project \o/\n${RESTORE}"
+echo -e "${GREEN}\nYou are good to go! \o/ \nYou can use ${YELLOW}${project_name}${RESTORE} ${GREEN}anywhere to go to your project \o/\n${RESTORE}"
