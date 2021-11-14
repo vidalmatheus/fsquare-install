@@ -43,7 +43,7 @@ case $installpython in [nN][oO]|[nN]);;*)
   sudo apt update
   sudo apt install wget build-essential libreadline-dev libncursesw5-dev libssl-dev libsqlite3-dev tk-dev libgdbm-dev libc6-dev libbz2-dev libffi-dev zlib1g-dev
 
-  curl -O https://www.python.org/ftp/python/${PYTHON_VERSION}/Python-${PYTHON_VERSION}.tgz
+  wget https://www.python.org/ftp/python/${PYTHON_VERSION}/Python-${PYTHON_VERSION}.tgz
   tar -xvzf Python-${PYTHON_VERSION}.tgz
   cd Python-${PYTHON_VERSION}
 
@@ -80,7 +80,7 @@ esac
 
 case $installvue in [nN][oO]|[nN]);;*)
   echo -e "${GREEN}\n\t 3. Installing vue, vue/cli and vue/cli-init${RESTORE}\n"
-  nvm use 16
+  nvm install 16
   npm install vue
   npm install -g @vue/cli
   npm install -g @vue/cli-init
