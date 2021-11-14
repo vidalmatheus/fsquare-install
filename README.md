@@ -116,7 +116,8 @@ source fsquare.sh
   ```bash
   echo "alias <your_project_name>='cd ~/projects/<your_project_name>;
           source ~/projects/.virtualenv/<your_project_name>/bin/activate;
-          nvm use 16'" | sudo tee -a ~/.bashrc >> /dev/null
+          nvm use 16;
+          source dev.sh'" | sudo tee -a ~/.bashrc >> /dev/null
   ```
 
   # 8. Create a virtualenv for the project
