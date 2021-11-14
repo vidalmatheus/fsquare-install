@@ -10,8 +10,13 @@
                                                     | |
                                                     |_|
 
+# In your home directory, do:
+```bash
+source fsquare.sh
+```
+
   # 1. Compile & install Python 3.10/pip 3.10
-  ```
+  ```bash
     export PYTHON_VERSION=3.10.0
     export PYTHON_MAJOR=3
 
@@ -27,10 +32,10 @@
     sudo make install -j4
 
 
-    # Set Python3.10 as python
+    # (Optional) Set Python3.10 as python
     # sudo update-alternatives --install /usr/bin/python python /usr/local/bin/python3.10 1
 
-    # Set Pip3.10 as pip
+    # (Optional) Set Pip3.10 as pip
     # sudo update-alternatives --install /usr/bin/pip pip /usr/local/bin/pip3.10 1
 
     python3.10 --version
@@ -44,7 +49,7 @@
   ```
 
   # 2. Install nvm
-  ```
+  ```bash
     wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
 
     export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
@@ -54,7 +59,7 @@
   ```
 
   # 3. Install vue, vue/cli and vue/cli-init
-  ```
+  ```bash
     nvm use 16
     npm install vue
     npm install -g @vue/cli
@@ -62,7 +67,7 @@
   ```
 
   # 4. Install docker
-  ```
+  ```bash
     sudo apt-get update
     sudo apt-get install \
       ca-certificates \
@@ -88,7 +93,7 @@
 
 
   # 5. Install docker-compose
-  ```
+  ```bash
     sudo curl -L https://github.com/docker/compose/releases/download/$COMPOSER_VERSION/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
     sudo chmod +x /usr/local/bin/docker-compose
 
@@ -97,7 +102,7 @@
 
 
   # 6. Instanciate Vue CLI F-Square template
-  ```
+  ```bash
     # Create projects directory
     if ! [ -d "projects" ]; then
       mkdir projects
@@ -108,14 +113,14 @@
   ```
 
   # 7. Create alias for the project
-  ```
+  ```bash
   echo "alias <your_project_name>='cd ~/projects/<your_project_name>;
           source ~/projects/.virtualenv/<your_project_name>/bin/activate;
           nvm use 16'" | sudo tee -a ~/.bashrc >> /dev/null
   ```
 
   # 8. Create a virtualenv for the project
-  ```
+  ```bash
   pip3.10 install virtualenv
   cd projects
   mkdir .virtualenv
@@ -125,19 +130,19 @@
   ```
 
   # 9. Install python modules
-  ```
+  ```bash
   pip install -r requirements.txt
   ```
 
   # 10. Install node modules
-  ```
+  ```bash
   cd frontend
   npm i
   cd ..
   ```
 
   # 11. Check virtualenv
-  ```
+  ```bash
   python --version
   pip --version
   ```
