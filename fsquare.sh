@@ -139,9 +139,16 @@ case $haveinstance in [yY][oO]|[yY]);;*)
 esac
 
 # Create alias for the project
-echo "alias ${project_name}='cd ~/projects/${project_name};
-        source ~/projects/.virtualenv/${project_name}/bin/activate;
-        nvm use 16'" | sudo tee -a ~/.bashrc >> /dev/null
+echo "alias __project__='cd ~/projects/__project__;
+        source ~/projects/.virtualenv/__project__/bin/activate;
+        nvm use 16;
+        source dev.sh'
+
+export DJANGO_DB_NAME=__project__
+export DJANGO_DB_USER=__project__
+export DJANGO_DB_PASSWORD=__project__
+export DJANGO_DB_HOST=localhost
+export DJANGO_DB_PORT=5432" | sudo tee -a ~/.bashrc >> /dev/null
 
 # Create a virtualenv for the project
 pip3.10 install virtualenv
