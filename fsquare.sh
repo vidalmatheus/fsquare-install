@@ -24,7 +24,7 @@ ${RESTORE}"
 echo -e "${LBLU}                Configure your installation\n${RESTORE}"
 
 read -p "$(echo -e ${BLUE}"? "${RESTORE}${LBLU}"Project name: "${RESTORE})" project_name
-read -p "$(echo -e ${BLUE}"? "${RESTORE}${LBLU}"Python 3.10 (Y/n): "${RESTORE})" installpython
+read -p "$(echo -e ${BLUE}"? "${RESTORE}${LBLU}"Python ${PYTHON_VERSION} (Y/n): "${RESTORE})" installpython
 read -p "$(echo -e ${BLUE}"? "${RESTORE}${LBLU}"nvm (Y/n): "${RESTORE})" installnvm
 read -p "$(echo -e ${BLUE}"? "${RESTORE}${LBLU}"Vue.js (Y/n): "${RESTORE})" installvue
 read -p "$(echo -e ${BLUE}"? "${RESTORE}${LBLU}"Docker (Y/n): "${RESTORE})" installdocker
