@@ -41,6 +41,7 @@ esac
 case $installpython in [nN][oO]|[nN]);;*)
   echo -e "${GREEN}\n\t 1. Installing Python${PYTHON_VERSION}${RESTORE}\n"
   sudo apt update
+  sudo apt upgrade
   sudo apt install wget build-essential libreadline-dev libncursesw5-dev libssl-dev libsqlite3-dev tk-dev libgdbm-dev libc6-dev libbz2-dev libffi-dev zlib1g-dev
 
   wget https://www.python.org/ftp/python/${PYTHON_VERSION}/Python-${PYTHON_VERSION}.tgz
