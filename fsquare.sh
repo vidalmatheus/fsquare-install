@@ -79,6 +79,7 @@ case $installnvm in [nN][oO]|[nN]);;*)
   
   # Install & use node 16
   nvm install 16
+  node --version
 esac
 
 case $installvue in [nN][oO]|[nN]);;*)
