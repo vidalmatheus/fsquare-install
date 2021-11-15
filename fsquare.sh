@@ -129,6 +129,7 @@ esac
 
 case $haveinstance in [yY][oO]|[yY]);;*)
   # Create projects directory
+  cd
   if ! [ -d "projects" ]; then
     mkdir projects
   fi
