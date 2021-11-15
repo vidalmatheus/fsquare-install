@@ -153,7 +153,6 @@ export DJANGO_DB_PORT=5432" | sudo tee -a ~/.bashrc >> /dev/null
 
 # Create a virtualenv for the project
 pip3.10 install virtualenv
-cd projects
 mkdir .virtualenv
 virtualenv -p python3.10 .virtualenv/$project_name >> /dev/null;
 . ~/projects/.virtualenv/$project_name/bin/activate;
