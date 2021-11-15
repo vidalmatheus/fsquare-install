@@ -132,7 +132,7 @@ case $haveinstance in [yY][oO]|[yY]);;*)
   if ! [ -d "projects" ]; then
     mkdir projects
   fi
-  cd projects
+  cd ~/projects
 
   echo -e "${GREEN}\n\t Instantiating Vue CLI F-Square template${RESTORE}\n"
   vue init vidalmatheus/fsquare $project_name
